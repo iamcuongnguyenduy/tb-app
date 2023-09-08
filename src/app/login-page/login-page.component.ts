@@ -3,8 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserValidators } from '../validators/user.validators';
 
 import { UserService } from '../user.service';
-import { HttpClient } from '@angular/common/http';
 import { User } from '../user';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -17,25 +17,15 @@ export class LoginPageComponent implements OnInit {
       Validators.required,
       Validators.email,
       Validators.minLength(10),
-      // CommonValidators.shouldBeUnique
     ]),
     password: new FormControl('', [Validators.required, UserValidators.cannotContainSpace])
   });
 
-
-  // constructor(private userService: UserService, private http: HttpClient){
-  //   http.get('https://jsonplaceholder.typicode.com/posts')
-  //     .subscribe(response => {
-  //       console.log(response);
-        
-  //     })
-  // }
   users: User[]=[];
-  constructor(private userService: UserService){}
+  constructor(private userService: UserService, private router: Router){}
 
   ngOnInit(): void {
-    this.getUsers();
-  }
+   }
 
   get username(){
     return this.form.get('username')
@@ -45,16 +35,23 @@ export class LoginPageComponent implements OnInit {
   }
 
   login(){
-    this.form.setErrors({
-      invalidLogin: true,
-    })       
-  }
-
-  getUsers(){
     this.userService.getUsers()
       .subscribe(res => {
-        this.users = res;
-      })
-  }
+          // console.log(res);
+          const userFound = res.find((user: User)=>{
+              console.log(user.username===this.username?.value && user.password === this.password?.value);              
+              return (user.username===this.username?.value && user.password === this.password?.value)
+          });
+          if(userFound){
+            alert("Login successfully");
+            this.form.reset;
+            this.router.navigate(['userboard'])           
+          }
+          else
+            alert("User is not found")
 
+        }, err=>{
+          alert("Something went wrong")
+        })     
+  }
 }

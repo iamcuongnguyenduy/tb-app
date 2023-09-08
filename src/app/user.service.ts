@@ -16,8 +16,15 @@ export class UserService {
     return this.http.get<User[]>("http://localhost:3000/userlist")
       .pipe(map((res: any)=>{
         return res;
-      }))
+      }));
   }
+
+  postUser(data: User){
+    return this.http.post<User>("http://localhost:3000/userlist", data)
+      .pipe(map((res: any)=>{
+        return res;
+      }));
+  } 
 
 
 }

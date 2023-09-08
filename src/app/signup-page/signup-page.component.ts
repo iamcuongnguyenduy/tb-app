@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserValidators } from '../validators/user.validators';
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
+import { User } from '../user';
 
 @Component({
     selector: 'app-signup-page',
@@ -29,9 +32,16 @@ export class SignupPageComponent implements OnInit {
     // })
 
     form: any;
-    constructor(private fb: FormBuilder){}
+    constructor(
+      private fb: FormBuilder,
+      private userService: UserService,
+      private router: Router
+      ){}
+
     ngOnInit(): void {
       this.form = this.fb.group({
+        firstName: ['', Validators.required],
+        lastName: ['', Validators.required],
         username: ['', [
             Validators.required,
             Validators.email, 
@@ -50,8 +60,34 @@ export class SignupPageComponent implements OnInit {
         validator: UserValidators.passwordsShouldMatch
       });
     }
-
     
+    user: User = new User();
+    signup(){    
+      this.user.firstName = this.firstName.value;
+      this.user.lastName = this.lastName.value;
+      this.user.username = this.username.value;
+      this.user.password = this.password.value;
+      this.user.mobileNumber = this.mobileNumber.value;
+      this.user.role = "Admin"
+     
+      this.userService.postUser(this.user)
+        .subscribe(res=>{
+          console.log(res); 
+          alert("User created successfully")         
+        }, err =>{
+          alert("Add user get failed")
+        })
+
+        this.form.reset();
+    }
+
+    get firstName(){
+      return this.form.get('firstName');
+    }
+
+    get lastName(){
+      return this.form.get('lastName');
+    }
       
     get username(){
       return this.form.get('username');
@@ -69,11 +105,6 @@ export class SignupPageComponent implements OnInit {
       return this.form.get('mobileNumber')
     }
 
-    signup(){
-      // this.form.setErrors({
-      //   invalidSignUp: true
-      // })
-      console.log("Pressed Sign-up");
-    }
+    
 }
 

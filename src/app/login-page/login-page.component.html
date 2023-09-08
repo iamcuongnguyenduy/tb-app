@@ -24,7 +24,7 @@
             formControlName="password"
             value="FakePSW"
             type="password" 
-            id="password" 
+            id="confirmPassword" 
             class="form-control">
         <div class="alert alert-danger" *ngIf="password?.touched && password?.invalid">
             <div *ngIf="password?.errors?.['required']">Password is required</div>
@@ -38,7 +38,4 @@
     </span>
 </form>
 
-<h3>List users</h3>
-<ul>
-    <li *ngFor="let user of users">{{user.username}}</li>
-</ul>
+
