@@ -44,6 +44,15 @@
       "mobileNumber": 9090909,
       "password": "abc",
       "role": "Admin"
+    },
+    {
+      "id": 6,
+      "firstName": "admin6",
+      "lastName": "admin6",
+      "username": "admin6@email.com",
+      "mobileNumber": 123,
+      "password": "123",
+      "role": "Admin"
     }
   ]
 }

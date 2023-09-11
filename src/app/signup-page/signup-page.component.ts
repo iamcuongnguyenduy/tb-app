@@ -61,16 +61,24 @@ export class SignupPageComponent implements OnInit {
       });
     }
     
-    user: User = new User();
+    userObject: User  = {
+      id: 0,
+      firstName: '',
+      lastName: '',
+      username: '',
+      mobileNumber: 0,
+      password: '',
+      role: '',
+    }
     signup(){    
-      this.user.firstName = this.firstName.value;
-      this.user.lastName = this.lastName.value;
-      this.user.username = this.username.value;
-      this.user.password = this.password.value;
-      this.user.mobileNumber = this.mobileNumber.value;
-      this.user.role = "Admin"
+      this.userObject.firstName = this.firstName.value;
+      this.userObject.lastName = this.lastName.value;
+      this.userObject.username = this.username.value;
+      this.userObject.password = this.password.value;
+      this.userObject.mobileNumber = this.mobileNumber.value;
+      this.userObject.role = "Admin"
      
-      this.userService.postUser(this.user)
+      this.userService.postUser(this.userObject)
         .subscribe(res=>{
           console.log(res); 
           alert("User created successfully")         
