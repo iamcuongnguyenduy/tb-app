@@ -3,7 +3,7 @@
         <p>Invalid Sign Up. Please recheck!</p>
     </div> -->
 
-    <div class="form-group" style="width: 400px;">
+    <div class="form-group">
         <label for="firstName">First name</label>
         <input 
             formControlName="firstName"
@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <div class="form-group" style="width: 400px;">
+    <div class="form-group">
         <label for="lastName">Last name</label>
         <input 
             formControlName="lastName"
@@ -27,7 +27,7 @@
         </div>
     </div>
     
-    <div class="form-group" style="width: 400px;">
+    <div class="form-group">
         <label for="username">User Name</label>
         <input 
             formControlName="username"
@@ -43,7 +43,7 @@
         </div>        
     </div>
 
-    <div class="form-group" style="width: 400px;">
+    <div class="form-group">
         <label for="password">Password</label>
         <input 
             formControlName="password"
@@ -56,7 +56,7 @@
         </div>
     </div>
 
-    <div class="form-group" style="width: 400px;">
+    <div class="form-group">
         <label for="confirmPassword">Confirm password</label>
         <input 
             formControlName="confirmPassword"
@@ -66,10 +66,10 @@
         <div class="alert alert-danger" *ngIf="confirmPassword?.touched && confirmPassword?.invalid">
             <div *ngIf="confirmPassword?.errors?.['required']">Confirm password is required</div>         
         </div>
-        <div *ngIf="confirmPassword.errors?.touched && form.invalid && form.errors?.passwordsShouldMatch" class="alert alert-danger">Passwords is not matching</div>    
+        <div *ngIf="confirmPassword.touched && form.invalid && form.errors?.passwordsShouldMatch" class="alert alert-danger">Passwords is not matching</div>    
     </div>
 
-    <div class="form-group" style="width: 400px;">
+    <div class="form-group">
         <label for="mobileNumber">Mobile Number</label>
         <input 
             formControlName="mobileNumber"
@@ -78,6 +78,20 @@
             class="form-control">
         <div class="alert alert-danger" *ngIf="mobileNumber?.touched && mobileNumber?.invalid">
             <div *ngIf="mobileNumber?.errors?.['required']">Mobile Number is required</div>
+        </div>
+    </div>
+
+    <div class="from-group">
+        <label for="Role">Role </label>
+        <div>
+            <select name="role" id="role"
+            formControlName="role">
+            
+                <option value=""></option>
+                <option value="Admin">Admin</option>
+                <option value="Operator">Operator</option>
+                <option value="Driver">Driver</option>
+            </select>
         </div>
     </div>
   

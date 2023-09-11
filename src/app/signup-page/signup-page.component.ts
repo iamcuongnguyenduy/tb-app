@@ -55,7 +55,8 @@ export class SignupPageComponent implements OnInit {
           ]
         ],
         confirmPassword: ['', Validators.required],
-        mobileNumber: ['', Validators.required]
+        mobileNumber: ['', Validators.required],
+        role: ['', Validators.required]
       }, {
         validator: UserValidators.passwordsShouldMatch
       });
@@ -71,12 +72,16 @@ export class SignupPageComponent implements OnInit {
       role: '',
     }
     signup(){    
+      if(this.form.invalid){
+        alert("Please correct all fields before Sign-up")
+      }
+      else{
       this.userObject.firstName = this.firstName.value;
       this.userObject.lastName = this.lastName.value;
       this.userObject.username = this.username.value;
       this.userObject.password = this.password.value;
       this.userObject.mobileNumber = this.mobileNumber.value;
-      this.userObject.role = "Admin"
+      this.userObject.role = this.role.value;
      
       this.userService.postUser(this.userObject)
         .subscribe(res=>{
@@ -87,6 +92,8 @@ export class SignupPageComponent implements OnInit {
         })
 
         this.form.reset();
+        this.confirmPassword.reset()
+      }
     }
 
     get firstName(){
@@ -111,6 +118,10 @@ export class SignupPageComponent implements OnInit {
 
     get mobileNumber(){
       return this.form.get('mobileNumber')
+    }
+
+    get role(){
+      return this.form.get('role')
     }
 
     

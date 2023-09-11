@@ -35,6 +35,10 @@ export class LoginPageComponent implements OnInit {
   }
 
   login(){
+    if(this.form.invalid){
+      alert("Correct all fields before Login")
+    }
+    else{
     this.userService.getUsers()
       .subscribe(res => {
           // console.log(res);
@@ -52,6 +56,7 @@ export class LoginPageComponent implements OnInit {
 
         }, err=>{
           alert("Something went wrong")
-        })     
+        })  
+      }   
   }
 }

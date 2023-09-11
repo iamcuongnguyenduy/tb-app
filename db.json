@@ -53,6 +53,33 @@
       "mobileNumber": 123,
       "password": "123",
       "role": "Admin"
+    },
+    {
+      "id": 7,
+      "firstName": "admin6",
+      "lastName": "admin6",
+      "username": "ndcuong882014@gmail.com",
+      "mobileNumber": 123,
+      "password": "123",
+      "role": ""
+    },
+    {
+      "id": 8,
+      "firstName": "",
+      "lastName": "",
+      "username": "",
+      "mobileNumber": "",
+      "password": "",
+      "role": ""
+    },
+    {
+      "id": 9,
+      "firstName": "admin6",
+      "lastName": "admin6",
+      "username": "admin6@email.com",
+      "mobileNumber": 909538409,
+      "password": "123",
+      "role": "Admin"
     }
   ]
 }
