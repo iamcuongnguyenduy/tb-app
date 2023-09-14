@@ -91,8 +91,12 @@ export class SignupPageComponent implements OnInit {
           alert("Add user get failed")
         })
 
+        
+        this.router.navigate(['/login']);
         this.form.reset();
         this.confirmPassword.reset()
+        
+       
       }
     }
 

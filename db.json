@@ -63,16 +63,7 @@
       "password": "123",
       "role": ""
     },
-    {
-      "id": 8,
-      "firstName": "",
-      "lastName": "",
-      "username": "",
-      "mobileNumber": "",
-      "password": "",
-      "role": ""
-    },
-    {
+     {
       "id": 9,
       "firstName": "admin6",
       "lastName": "admin6",
@@ -80,6 +71,15 @@
       "mobileNumber": 909538409,
       "password": "123",
       "role": "Admin"
+    },
+    {
+      "id": 10,
+      "firstName": "admin7",
+      "lastName": "admin7",
+      "username": "admin7@email.com",
+      "mobileNumber": 123,
+      "password": "123",
+      "role": "Driver"
     }
   ]
 }
