@@ -1,4 +1,40 @@
-<h3>List users</h3>
+<!-- <h3>List users</h3>
 <ul>
     <li *ngFor="let user of users">{{user.username}}</li>
-</ul>
+</ul> -->
+
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#Id</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Role</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.mobileNumber }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+          <span class="edit btn-danger btn-sm btn" (click)="delete(user.id)"
+            >Delete</span
+          >
+          &nbsp;
+          <span
+            class="edit btn-success btn-sm btn"
+            routerLink="/edit/{{ user.id }}"
+            >Edit</span
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>

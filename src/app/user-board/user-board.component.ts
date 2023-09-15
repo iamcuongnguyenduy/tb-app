@@ -8,6 +8,7 @@ import { User } from '../user';
   styleUrls: ['./user-board.component.css']
 })
 export class UserBoardComponent implements OnInit {
+delete: any;
 
   constructor(private userService: UserService){}
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
@@ -17,11 +18,14 @@ export class AppComponent {
   title$ = new Observable(observer => {
     setInterval(() => {
       observer.next();
+
     }, 2000);
   });
 
   constructor() {
     this.title$.subscribe(this.setTitle);
   }
-  
+
+
 }
+

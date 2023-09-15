@@ -7,13 +7,15 @@ import { SignupPageComponent } from './signup-page/signup-page.component';
 import { UserBoardComponent } from './user-board/user-board.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { KeyLoggerComponent } from './key-logger/key-logger.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     SignupPageComponent,
-    UserBoardComponent
+    UserBoardComponent,
+    KeyLoggerComponent
   ],
   imports: [
     BrowserModule,
